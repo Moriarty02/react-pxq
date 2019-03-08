@@ -104,6 +104,16 @@ class API extends Server{
       throw err;
     }
   }
+  async getList(params={}){
+      let list=[
+        {item:"item1",id:"xx1"},
+        {item:"item2",id:"xx2"},
+        {item:"item3",id:"xx3"},
+        {item:"item4",id:"xx4"},
+        {item:"item5",id:"xx5"},
+      ]
+      return list
+  }
 }
 
 export default new API();

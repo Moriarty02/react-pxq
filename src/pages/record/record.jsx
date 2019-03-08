@@ -33,6 +33,7 @@ class Record extends Component {
 
   componentWillReceiveProps(nextProps){
     // 属性变化时设置头部底部标签位置
+    console.log(nextProps);
     let currenType = this.props.location.pathname.split('/')[2];
     let type = nextProps.location.pathname.split('/')[2];
     if(currenType !== type){

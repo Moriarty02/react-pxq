@@ -5,6 +5,9 @@ import TouchableOpacity from '@/components/TouchableOpacity/TouchableOpacity';
 import PublicAlert from '@/components/alert/alert';
 import API from '@/api/api';
 import './balance.less';
+import {message} from 'antd'
+
+
 
 class BrokeRage extends Component{
   state = {
@@ -25,6 +28,7 @@ class BrokeRage extends Component{
       console.error(err);
     }
   }
+
   
   /**
    * 格式化输入数据
@@ -51,7 +55,11 @@ class BrokeRage extends Component{
   /**
    * 提交判断条件
    */
+  testMsg=()=>{
+    message.info(123)
+  }
   sumitForm = () => {
+    
     let alertTip;
     if(!this.state.applyNum){
       alertTip = '请输入提现金额';
@@ -94,11 +102,11 @@ class BrokeRage extends Component{
           <p className="broke-header">您的可提现金额为：¥ {this.state.balance.balance}</p>
           <form className="broke-form">
             <p>请输入提现金额（元）</p>
-            <p>¥ <input type="text" value={this.state.applyNum} placeholder="0.00" onInput={this.handleInput} maxLength="5" /></p>
+            <p>¥ <input type="text" value={this.state.applyNum} placeholder="0.00" onChange={event=>this.handleInput(event)} maxLength="5" /></p>
           </form>
           <TouchableOpacity className="submit-btn" clickCallBack={this.sumitForm} text="申请提现" />
         </section>
-        <PublicAlert closeAlert={this.closeAlert} alertTip={this.state.alertTip} alertStatus={this.state.alertStatus} />
+           {this.state.alertStatus&&<PublicAlert closeAlert={this.closeAlert} alertTip={this.state.alertTip} alertStatus={this.state.alertStatus} />}
       </main>
     );
   }

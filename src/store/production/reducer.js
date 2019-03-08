@@ -50,6 +50,15 @@ export const proData = (state = defaultState, action) => {
         })
       }
       return {...state, ...{dataList: imuDataList.toJS()}};
+    case pro.SELECTALL:
+    imuDataList = Immutable.fromJS(state.dataList);
+    for(let i =0;i<state.dataList.length;i++){
+      imuDataList=imuDataList.update(i,item=>{
+        item=item.set("selectStatus",!action.selectAll)
+        return item
+      })
+    }
+    return {...state,...{dataList:imuDataList.toJS()}}
     default: 
       return state;
   }

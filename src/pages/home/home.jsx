@@ -10,10 +10,10 @@ import { clearSelected } from '@/store/production/action';
 import PublicHeader from '@/components/header/header';
 import PublicAlert from '@/components/alert/alert';
 import TouchableOpacity from '@/components/TouchableOpacity/TouchableOpacity';
-import mixin, { padStr } from '@/utils/mixin';
+// import mixin, { padStr } from '@/utils/mixin';
 import './home.less';
 
-@mixin({padStr})
+// @mixin({padStr})
 class Home extends Component {
   static propTypes = {
     formData: PropTypes.object.isRequired,
@@ -47,10 +47,13 @@ class Home extends Component {
       case 'name':
       break;
       case 'phoneNo':
-        value = this.padStr(value.replace(/\D/g, ''), [3, 7], ' ', event.target);
+     //   value = this.padStr(value.replace(/\D/g, ''), [3, 7], ' ', event.target);
+      break;
+      case 'address':
       break;
       default:;
     }
+    console.log(value,type);
     this.props.saveFormData(value, type);
   }
   
@@ -142,12 +145,17 @@ class Home extends Component {
             <span>客户电话：</span>
             <input type="text" maxLength="13" placeholder="请输入客户电话" value={this.props.formData.phoneNo} onChange={this.handleInput.bind(this, 'phoneNo')}/>
           </div>
+          <div className="home-form-tiem">
+          <span>客户地址：</span>
+          <input type="text" placeholder="请输入用户地址" value={this.props.formData.address} onChange={this.handleInput.bind(this,'address')} />
+          </div>
         </form>
         <div>
           <p className="common-title">请选择销售的产品</p>
           <Link to="/production" className="common-select-btn">
             {
-              this.selectedProList.length ? <ul className="selected-pro-list">
+              this.selectedProList.length ? 
+              <ul className="selected-pro-list">
                 {
                   this.selectedProList.map((item, index) => {
                     return <li key={index} className="selected-pro-item ellipsis">{item.product_name}x{item.selectNum}</li>
@@ -181,3 +189,4 @@ export default connect(state => ({
   clearData,
   clearSelected,
 })(Home);
+

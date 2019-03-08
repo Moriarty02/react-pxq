@@ -45,6 +45,13 @@ export const clearSelected = () => {
     type: pro.CLEARSELECTED,
   }
 }
+//选择全部
+export const selectAll =(selectAllStatus)=>{
+  return {
+    type:pro.SELECTALL,
+    selectAll:selectAllStatus
+  }
+}
 
 
 

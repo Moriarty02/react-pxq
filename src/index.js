@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Route from './router/';
-import FastClick from 'fastclick';
+// import FastClick from 'fastclick';
 import registerServiceWorker from './registerServiceWorker';
 import { AppContainer } from 'react-hot-loader';
 import {Provider} from 'react-redux';
@@ -9,7 +9,7 @@ import store from '@/store/store';
 import './utils/setRem';
 import './style/base.css';
 
-FastClick.attach(document.body);
+// FastClick.attach(document.body);
 
 // 监听state变化
 // store.subscribe(() => {

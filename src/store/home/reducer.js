@@ -4,6 +4,7 @@ let defaultState = {
   orderSum: '', //金额
   name: '', //姓名
   phoneNo: '', //手机号
+  address:'',//用户地址
   imgpath: '', //图片地址
 }
 // 首页表单数据

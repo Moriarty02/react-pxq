@@ -1,4 +1,10 @@
 {
   "presets": ["react"],
-  "plugins": ["syntax-dynamic-import"]
+  "plugins": ["syntax-dynamic-import",
+    ["import", {
+      "libraryName": "antd",
+      "libraryDirectory": "es",
+      "style": "css"
+    }]
+  ]
 }

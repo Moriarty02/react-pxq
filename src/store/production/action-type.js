@@ -6,3 +6,4 @@ export const TOGGLESELECT = 'TOGGLESELECT';
 export const EDITPRODUCTION = 'EDITPRODUCTION';
 // 清空选择
 export const CLEARSELECTED = 'CLEARSELECTED';
+export const SELECTALL ="SELECTALL";
